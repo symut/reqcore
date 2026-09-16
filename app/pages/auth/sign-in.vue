@@ -21,6 +21,7 @@ const ssoRedirecting = ref(false);
 const route = useRoute();
 const config = useRuntimeConfig();
 const localePath = useLocalePath();
+const { t } = useI18n();
 const { track } = useTrack();
 
 const { data: authProviders } = await useFetch("/api/auth/providers");
@@ -217,10 +218,10 @@ async function handleSocialSignIn(providerId: string) {
             <h2
                 class="text-2xl font-semibold tracking-tight text-surface-900 dark:text-surface-100"
             >
-                Welcome back
+                {{ t("auth.sidebar.signInTitle") }}
             </h2>
             <p class="mt-1.5 text-sm text-surface-500 dark:text-surface-400">
-                Sign in to your Reqcore workspace.
+                {{ t("auth.sidebar.signInSubTitle") }}
             </p>
         </div>
 
@@ -423,7 +424,7 @@ async function handleSocialSignIn(providerId: string) {
                 :to="$localePath('/auth/forgot-password')"
                 class="text-sm text-brand-600 dark:text-brand-400 hover:underline"
             >
-                Forgot password?
+                {{ t("auth.sidebar.signInForgotPassword") }}
             </NuxtLink>
         </div>
 
@@ -446,7 +447,9 @@ async function handleSocialSignIn(providerId: string) {
                 <div class="relative flex justify-center text-xs">
                     <span
                         class="bg-white dark:bg-surface-900 px-2 text-surface-400"
-                        >or</span
+                        >
+                            {{ t("auth.sidebar.signInOr") }}
+                        </span
                     >
                 </div>
             </div>
@@ -472,7 +475,7 @@ async function handleSocialSignIn(providerId: string) {
         </template>
 
         <p class="text-center text-sm text-surface-500 dark:text-surface-400">
-            Don't have an account?
+            {{ t("auth.sidebar.signInNoAccount") }}
             <NuxtLink
                 :to="
                     route.query.invitation
@@ -483,7 +486,7 @@ async function handleSocialSignIn(providerId: string) {
                         : $localePath('/auth/sign-up')
                 "
                 class="text-brand-600 dark:text-brand-400 hover:underline"
-                >Sign up</NuxtLink
+                >{{ t("auth.sidebar.signInSignUp") }}</NuxtLink
             >
         </p>
     </form>

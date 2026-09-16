@@ -43,6 +43,7 @@ const TYPE_LABELS: Record<string, string> = {
 function publicBaseUrl(): string {
   return env.BETTER_AUTH_URL
     || (env.RAILWAY_PUBLIC_DOMAIN ? `https://${env.RAILWAY_PUBLIC_DOMAIN}` : '')
+    || process.env.NUXT_PUBLIC_SITE_URL
     || 'https://reqcore.com'
 }
 
@@ -212,29 +213,29 @@ export async function sendInterviewConversationMessage(params: {
   try {
     icsContent = kind === 'interview_cancellation'
       ? generateCancellationICS({
-          interviewId: record.id,
-          summary: record.title,
-          startTime: scheduledAt,
-          durationMinutes: record.duration,
-          organizerName: params.sender.name || org.name,
-          organizerEmail,
-          attendeeEmail: record.application.candidate.email,
-          attendeeName: candidateName,
-          sequence: Math.max(0, sequence - 1),
-        })
+        interviewId: record.id,
+        summary: record.title,
+        startTime: scheduledAt,
+        durationMinutes: record.duration,
+        organizerName: params.sender.name || org.name,
+        organizerEmail,
+        attendeeEmail: record.application.candidate.email,
+        attendeeName: candidateName,
+        sequence: Math.max(0, sequence - 1),
+      })
       : generateInterviewICS({
-          interviewId: record.id,
-          summary: record.title,
-          description: `${record.title}\n${record.application.job.title}\n${body}`,
-          startTime: scheduledAt,
-          durationMinutes: record.duration,
-          location: record.location,
-          organizerName: params.sender.name || org.name,
-          organizerEmail,
-          attendeeEmail: record.application.candidate.email,
-          attendeeName: candidateName,
-          sequence,
-        })
+        interviewId: record.id,
+        summary: record.title,
+        description: `${record.title}\n${record.application.job.title}\n${body}`,
+        startTime: scheduledAt,
+        durationMinutes: record.duration,
+        location: record.location,
+        organizerName: params.sender.name || org.name,
+        organizerEmail,
+        attendeeEmail: record.application.candidate.email,
+        attendeeName: candidateName,
+        sequence,
+      })
   }
   catch (error) {
     const errorMessage = error instanceof Error ? error.message.slice(0, 1000) : 'Calendar invitation generation failed'

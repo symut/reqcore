@@ -20,6 +20,7 @@ const confirmPassword = ref("");
 const error = ref("");
 const isLoading = ref(false);
 const localePath = useLocalePath();
+const { t } = useI18n();
 const { track } = useTrack();
 const { trackConversion } = useGoogleAdsConversion();
 const { data: authProviders } = await useFetch('/api/auth/providers');
@@ -205,10 +206,10 @@ async function handleSocialSignUp(providerId: string) {
     <form class="flex flex-col gap-4" @submit.prevent="handleSignUp">
         <div class="mb-2">
             <h2 class="text-2xl font-semibold tracking-tight text-surface-900 dark:text-surface-100">
-                Create your account
+                {{ t("auth.sidebar.signUpTitle") }}
             </h2>
             <p class="mt-1.5 text-sm text-surface-500 dark:text-surface-400">
-                Start sorting your applicant flood in minutes.
+                {{ t("auth.sidebar.signUpSubTitle") }}
             </p>
         </div>
 
@@ -312,7 +313,7 @@ async function handleSocialSignUp(providerId: string) {
         <label
             class="flex flex-col gap-1 text-sm font-medium text-surface-700 dark:text-surface-300"
         >
-            <span>Name</span>
+            <span>{{ t("auth.sidebar.signUpFormName") }}</span>
             <input
                 v-model="name"
                 type="text"
@@ -352,7 +353,7 @@ async function handleSocialSignUp(providerId: string) {
         <label
             class="flex flex-col gap-1 text-sm font-medium text-surface-700 dark:text-surface-300"
         >
-            <span>Confirm password</span>
+            <span>{{ t("auth.sidebar.signUpFormConfirmPassword") }}</span>
             <input
                 v-model="confirmPassword"
                 type="password"
@@ -371,7 +372,7 @@ async function handleSocialSignUp(providerId: string) {
         </button>
 
         <p class="text-center text-sm text-surface-500 dark:text-surface-400">
-            Already have an account?
+            {{ t("auth.sidebar.signUpAlreadyHaveAccount") }}
             <NuxtLink
                 :to="
                     pendingInvitation
@@ -382,7 +383,7 @@ async function handleSocialSignUp(providerId: string) {
                         : $localePath('/auth/sign-in')
                 "
                 class="text-brand-600 dark:text-brand-400 hover:underline"
-                >Sign in</NuxtLink
+                >{{ t("auth.sidebar.signUpSignIn") }}</NuxtLink
             >
         </p>
     </form>

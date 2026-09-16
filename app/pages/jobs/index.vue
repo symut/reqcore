@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Search, MapPin, Briefcase, ChevronLeft, ChevronRight } from 'lucide-vue-next'
+import { Search, MapPin, Briefcase, ChevronLeft, ChevronRight, LayoutGrid, List } from 'lucide-vue-next'
 
 definePageMeta({
   layout: 'public',
@@ -40,6 +40,7 @@ const page = ref(1)
 const searchInput = ref('')
 const searchQuery = ref('')
 const typeFilter = ref<string | undefined>(undefined)
+const viewMode = ref<'list' | 'grid'>('list')
 
 // Debounce search input
 let searchTimer: ReturnType<typeof setTimeout> | null = null
@@ -111,7 +112,7 @@ function formatDate(dateStr: string) {
     </div>
 
     <!-- Filters -->
-    <div class="flex flex-col sm:flex-row gap-3 mb-6">
+    <div class="flex flex-col gap-3 mb-6 sm:flex-row">
       <!-- Search -->
       <div class="relative flex-1">
         <Search class="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-surface-400 pointer-events-none" />
@@ -133,6 +134,34 @@ function formatDate(dateStr: string) {
           {{ opt.label }}
         </option>
       </select>
+
+      <!-- View mode -->
+      <div
+        class="inline-flex items-center self-start rounded-lg border border-surface-300 bg-white p-1 dark:border-surface-700 dark:bg-surface-900 sm:self-auto"
+        role="group"
+        :aria-label="t('jobs.list.viewMode')"
+      >
+        <button
+          type="button"
+          :aria-label="t('jobs.list.listView')"
+          :aria-pressed="viewMode === 'list'"
+          class="inline-flex size-8 items-center justify-center rounded-md transition-colors cursor-pointer"
+          :class="viewMode === 'list' ? 'bg-surface-100 text-surface-900 dark:bg-white/[0.1] dark:text-white' : 'text-surface-400 hover:bg-surface-50 hover:text-surface-700 dark:hover:bg-white/[0.06] dark:hover:text-surface-200'"
+          @click="viewMode = 'list'"
+        >
+          <List class="size-4" />
+        </button>
+        <button
+          type="button"
+          :aria-label="t('jobs.list.gridView')"
+          :aria-pressed="viewMode === 'grid'"
+          class="inline-flex size-8 items-center justify-center rounded-md transition-colors cursor-pointer"
+          :class="viewMode === 'grid' ? 'bg-surface-100 text-surface-900 dark:bg-white/[0.1] dark:text-white' : 'text-surface-400 hover:bg-surface-50 hover:text-surface-700 dark:hover:bg-white/[0.06] dark:hover:text-surface-200'"
+          @click="viewMode = 'grid'"
+        >
+          <LayoutGrid class="size-4" />
+        </button>
+      </div>
     </div>
 
     <!-- Loading state -->
@@ -167,12 +196,12 @@ function formatDate(dateStr: string) {
     </div>
 
     <!-- Job list -->
-    <div v-else class="space-y-3">
+    <div v-else :class="viewMode === 'grid' ? 'grid gap-4 sm:grid-cols-2' : 'space-y-3'">
       <NuxtLink
         v-for="j in jobs"
         :key="j.id"
         :to="{ path: $localePath(`/jobs/${j.slug}`), query: sourceQuery }"
-        class="block rounded-lg border border-surface-200 dark:border-surface-800 bg-white dark:bg-surface-900 px-5 py-4 hover:border-surface-300 dark:hover:border-surface-700 hover:shadow-sm transition-all group"
+        class="block rounded-lg border border-surface-200 bg-white px-5 py-4 transition-all group hover:border-surface-300 hover:shadow-sm dark:border-surface-800 dark:bg-surface-900 dark:hover:border-surface-700"
       >
         <div class="flex items-start justify-between gap-4">
           <div class="min-w-0 flex-1">

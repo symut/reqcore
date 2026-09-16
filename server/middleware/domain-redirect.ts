@@ -8,7 +8,7 @@
  * Also handles non-www → www normalization if ever needed, and ensures HTTPS.
  */
 const LEGACY_HOSTS = new Set(['applirank.com', 'www.applirank.com'])
-const CANONICAL_ORIGIN = 'https://reqcore.com'
+const CANONICAL_ORIGIN = process.env.BETTER_AUTH_URL || process.env.NUXT_PUBLIC_SITE_URL || 'https://reqcore.com'
 
 export default defineEventHandler((event) => {
   const host = getRequestHeader(event, 'host')?.split(':')[0]?.toLowerCase()

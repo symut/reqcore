@@ -123,6 +123,7 @@ type RouteName = string | symbol | null | undefined
 
 const localeFlags: Record<string, string> = {
   en: '🇺🇸',
+  id: '🇮🇩',
   es: '🇪🇸',
   fr: '🇫🇷',
   de: '🇩🇪',

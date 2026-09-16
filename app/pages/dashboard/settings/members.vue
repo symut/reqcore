@@ -305,19 +305,14 @@ function getInviteLinkUrl(token: string): string {
 
 async function copyLinkToClipboard(link: { id: string; token: string }) {
   try {
-    await navigator.clipboard.writeText(getInviteLinkUrl(link.token))
+    await copyToClipboard(getInviteLinkUrl(link.token))
     copiedLinkId.value = link.id
     setTimeout(() => { copiedLinkId.value = null }, 2000)
   }
   catch {
-    // Fallback for non-secure contexts
-    const textArea = document.createElement('textarea')
-    textArea.value = getInviteLinkUrl(link.token)
-    document.body.appendChild(textArea)
-    textArea.select()
-    document.execCommand('copy')
-    document.body.removeChild(textArea)
+    // Should be handled by copyToClipboard but just in case
     copiedLinkId.value = link.id
+
     setTimeout(() => { copiedLinkId.value = null }, 2000)
   }
 }

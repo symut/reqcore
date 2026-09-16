@@ -40,14 +40,14 @@ DATABASE_URL=postgresql://reqcore:${DB_PASS}@localhost:5432/reqcore
 
 # ─── Authentication ──────────────────────────────────────────────────────────
 BETTER_AUTH_SECRET=${AUTH_SECRET}
-BETTER_AUTH_URL=http://localhost:3000
+BETTER_AUTH_URL=http://localhost:3006
 
 # ─── Object Storage ──────────────────────────────────────────────────────────
 STORAGE_USER=reqcore
 STORAGE_PASSWORD=${STORAGE_PASS}
 
 # Used by host tools. docker-compose overrides this for the app container.
-S3_ENDPOINT=http://localhost:9000
+S3_ENDPOINT=http://localhost:9010
 S3_ACCESS_KEY=reqcore
 S3_SECRET_KEY=${STORAGE_PASS}
 S3_BUCKET=reqcore
@@ -55,7 +55,7 @@ S3_REGION=us-east-1
 S3_FORCE_PATH_STYLE=true
 
 # ─── SEO ─────────────────────────────────────────────────────────────────────
-NUXT_PUBLIC_SITE_URL=http://localhost:3000
+NUXT_PUBLIC_SITE_URL=http://localhost:3006
 EOF
 
 echo ""
@@ -64,7 +64,7 @@ echo ""
 echo "Start the stack:"
 echo "  docker compose up"
 echo ""
-echo "App → http://localhost:3000"
+echo "App → http://localhost:3006"
 echo ""
 echo "Optional — seed demo account (after the app is running):"
 echo "  docker compose exec app npm run db:seed"

@@ -82,7 +82,7 @@ const copied = ref(false)
 async function copyTrackingUrl() {
   if (!link.value) return
   try {
-    await navigator.clipboard.writeText(buildTrackingUrl(link.value.code))
+    await copyToClipboard(buildTrackingUrl(link.value.code))
     copied.value = true
     setTimeout(() => { copied.value = false }, 2000)
   } catch {

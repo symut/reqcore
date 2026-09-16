@@ -97,7 +97,7 @@ const copiedKey = ref<string | null>(null)
 async function copy(key: string, value: string) {
   if (!value) return
   try {
-    await navigator.clipboard.writeText(value)
+    await copyToClipboard(value)
     copiedKey.value = key
     setTimeout(() => {
       if (copiedKey.value === key) copiedKey.value = null

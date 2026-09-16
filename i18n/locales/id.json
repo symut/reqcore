@@ -1,0 +1,344 @@
+{
+  "common": {
+    "language": "Bahasa",
+    "selectLanguage": "Pilih bahasa",
+    "save": "Simpan",
+    "cancel": "Batal"
+  },
+  "home": {
+    "nav": {
+      "features": "Fitur",
+      "pricing": "Harga",
+      "openPositions": "Lowongan",
+      "roadmap": "Peta Jalan",
+      "blog": "Blog",
+      "github": "GitHub",
+      "dashboard": "Dasbor",
+      "logIn": "Masuk",
+      "signUp": "Daftar"
+    },
+    "stats": {
+      "companies": "Perusahaan",
+      "jobs": "Lowongan",
+      "applicants": "Lamaran",
+      "hired": "Diterima"
+    },
+    "map": {
+      "title": "Sebaran Lowongan Pekerjaan DI BERBAGAI KOTA",
+      "subtitle": "Sebaran Lowongan"
+    },
+    "partners": {
+      "eyebrow": "Mitra kami",
+      "title": "Bersama membuka lebih banyak peluang",
+      "description": "Kami bekerja sama dengan mitra ketenagakerjaan dan pengembangan tenaga kerja tepercaya untuk menghubungkan lebih banyak orang dengan peluang yang berarti."
+    },
+    "featuredJobs": {
+      "title": "Lowongan Terbaru",
+      "subtitle": "Jelajahi peluang terbaru",
+      "viewAll": "Lihat semua lowongan"
+    },
+    "jobTypes": {
+      "eyebrow": "Temukan yang sesuai",
+      "title": "Pekerjaan untuk langkah Anda berikutnya",
+      "description": "Jelajahi peluang dengan berbagai pola kerja, mulai dari posisi penuh waktu hingga magang untuk membantu Anda memulai langkah pertama.",
+      "note": "Peluang baru ditambahkan secara berkala",
+      "items": {
+        "fullTime": {
+          "label": "Penuh waktu",
+          "description": "Peran jangka panjang"
+        },
+        "partTime": {
+          "label": "Paruh waktu",
+          "description": "Jadwal fleksibel"
+        },
+        "contract": {
+          "label": "Kontrak",
+          "description": "Pekerjaan berbasis proyek"
+        },
+        "internship": {
+          "label": "Magang",
+          "description": "Mulai dan belajar"
+        }
+      }
+    },
+    "badge": "ATS yang dikelola untuk tim perekrutan modern",
+    "hero": {
+      "titleLine1": "Job Fair 4.0",
+      "titleHighlight": "& Disnaker Goes to Campus",
+      "subtitle": "Wujudkan karir impianmu di sini! Temukan berbagai peluang kerja dari perusahaan terkemuka dan mulai langkah suksesmu hari ini.",
+      "goToDashboard": "Ke Dasbor",
+      "signIn": "Masuk",
+      "createAccount": "Buat akun Perusahaan",
+      "ctaDemo": "Ajukan lamaran sekarang",
+      "ctaStart": "Mulai gratis",
+      "hint": "Coba demo dengan data contoh, tanpa perlu mendaftar"
+    },
+    "pillars": {
+      "yourData": {
+        "label": "Satu lowongan aktif gratis",
+        "desc": "Jalankan proses perekrutan nyata sebelum Anda membayar. Tidak perlu kartu kredit."
+      },
+      "auditable": {
+        "label": "300 pelamar termasuk",
+        "desc": "Ruang yang cukup untuk menguji sourcing, screening, dan alur pipeline pada peran nyata."
+      },
+      "unlimitedSeats": {
+        "label": "Kursi tak terbatas",
+        "desc": "Tambahkan tim perekrutan Anda tanpa mengubah setiap kolaborator menjadi biaya kursi tambahan."
+      }
+    },
+    "footer": {
+      "source": "Tentang",
+      "tagline": "Copyright © Karir - 2026 | Pusat Karir Universitas Tidar"
+    }
+  },
+  "auth": {
+    "sidebar": {
+      "signInTitle": "Selamat datang kembali",
+      "signInSubTitle": "Masuk ke ruang kerja Karir Anda.",
+      "signInForgotPassword": "Lupa password Anda?",
+      "signInOr": "atau",
+      "signInNoAccount": "Belum punya akun?",
+      "signInSignUp": "Daftar",
+      "signUpTitle": "Buat akun Anda",
+      "signUpSubTitle": "Mulailah menyaring lamaran yang membanjiri Anda dalam hitungan menit.",
+      "signUpFormName": "Nama Lengkap",
+      "signUpFormConfirmPassword": "Konfirmasi Password",
+      "signUpAlreadyHaveAccount": "Sudah punya akun?",
+      "signUpSignIn": "Login",
+      "plan": "Paket Anda",
+      "monthly": "Bulanan",
+      "yearly": "Tahunan",
+      "twoMonthsFree": "2 bulan gratis",
+      "popular": "Populer",
+      "secureCheckout": "Checkout aman setelah pendaftaran",
+      "forCompaniesTitle": "Untuk perusahaan",
+      "companyBenefit1": "Kelola lowongan dan proses rekrutmen.",
+      "companyBenefit2": "Pantau pelamar, screening, dan shortlist secara terstruktur.",
+      "companyBenefit3": "Menyediakan platform untuk perusahaan penyedia lowongan.",
+      "applicantsTitle": "Calon pelamar",
+      "applicantsText": "Calon pelamar tidak perlu membuat akun atau login untuk melihat lowongan dan mengajukan lamaran. Proses pendaftaran dan masuk di halaman ini hanya diperuntukkan bagi perusahaan penyedia lowongan.",
+      "helpSignIn": "Butuh bantuan masuk?",
+      "helpSignUp": "Butuh bantuan memulai?",
+      "contactSupport": "Hubungi dukungan"
+    }
+  },
+  "retention": {
+    "title": "Privasi & Retensi",
+    "description": "Atur pemberitahuan privasi dan hapus otomatis data kandidat setelah masa retensi berakhir.",
+    "policy": {
+      "title": "Kebijakan retensi",
+      "description": "Diukur dari aktivitas perekrutan terbaru kandidat.",
+      "enable": "Aktifkan retensi otomatis",
+      "enableHelp": "Kandidat yang kedaluwarsa dikarantina sebelum penghapusan permanen. Data yang sudah ada terlebih dahulu mendapat jendela peninjauan.",
+      "months": "Periode retensi (bulan)",
+      "quarantineDays": "Jendela karantina (hari)",
+      "quarantineHelp": "Periode grace yang dapat dipulihkan sebelum penghapusan permanen."
+    },
+    "privacy": {
+      "title": "Pemberitahuan privasi formulir lamaran",
+      "description": "Ditampilkan kepada pelamar pada formulir lamaran kerja publik Anda.",
+      "url": "URL kebijakan privasi",
+      "email": "Email kontak privasi",
+      "text": "Teks pemberitahuan (opsional)",
+      "defaultNotice": "Dengan melamar, Anda setuju bahwa {organization} dapat memproses data lamaran Anda untuk mengevaluasi pencalonan Anda. Data Anda hanya disimpan selama diperlukan lalu dihapus.",
+      "thisOrganization": "organisasi ini",
+      "policyLink": "Kebijakan privasi",
+      "contactLabel": "Kontak"
+    },
+    "save": {
+      "button": "Simpan perubahan",
+      "saving": "Menyimpan…",
+      "saved": "Tersimpan!",
+      "permission": "Hanya admin dan pemilik yang dapat mengubah pengaturan ini."
+    },
+    "review": {
+      "title": "Penghapusan yang akan datang",
+      "description": "Kandidat yang akan kedaluwarsa, dikarantina, atau dibebaskan dari retensi.",
+      "instanceDisabled": "Pembersihan otomatis dijeda oleh administrator instans. Kebijakan dan data tinjauan tetap tidak berubah.",
+      "loading": "Memuat…",
+      "empty": "Tidak ada yang perlu ditinjau. Tidak ada kandidat yang mendekati batas retensi.",
+      "expires": "Kedaluwarsa {date}",
+      "erases": "Dihapus {date}",
+      "exemptUntil": "Dikecualikan sampai {date}"
+    },
+    "status": {
+      "expiring": "Akan kedaluwarsa",
+      "expired": "Kedaluwarsa",
+      "quarantined": "Dikarantina",
+      "exempt": "Dikecualikan"
+    },
+    "actions": {
+      "export": "Ekspor data",
+      "restore": "Pulihkan",
+      "hold": "Tambahkan penahanan hukum",
+      "clearHold": "Hapus penahanan hukum",
+      "erase": "Hapus sekarang",
+      "holdPrompt": "Alasan penahanan hukum (misalnya sengketa yang sedang berlangsung):",
+      "eraseConfirm": "Ini akan menghapus {name} dan semua datanya secara permanen dan tidak dapat dibatalkan. Ketik nama lengkap kandidat untuk konfirmasi:"
+    },
+    "errors": {
+      "save": "Gagal menyimpan pengaturan",
+      "restore": "Gagal memulihkan kandidat",
+      "hold": "Gagal menambahkan penahanan hukum",
+      "clearHold": "Gagal menghapus penahanan hukum",
+      "erase": "Gagal menghapus kandidat",
+      "eraseNameMismatch": "Namanya tidak cocok. Kandidat tidak dihapus."
+    }
+  },
+  "career": {
+    "eyebrow": "Karier",
+    "metaTitle": "{name} — Karier",
+    "openRoles": "Posisi terbuka",
+    "headlineWithName": "Posisi terbuka di {name}",
+    "openRolesCount": "{count} posisi terbuka | {count} posisi terbuka",
+    "filteredOf": "{shown} dari {total}",
+    "totalCount": "{total} total",
+    "searchPlaceholder": "Cari posisi",
+    "allLocations": "Semua lokasi",
+    "allTypes": "Semua tipe",
+    "clear": "Bersihkan",
+    "emptyTitle": "Tidak ada posisi terbuka",
+    "emptyBody": "Saat ini tidak ada posisi yang terbuka. Cek kembali nanti.",
+    "noMatchesTitle": "Tidak ada posisi yang cocok dengan filter Anda",
+    "clearFilters": "Bersihkan filter",
+    "notFoundTitle": "Halaman karier tidak tersedia",
+    "notFoundBody": "Perusahaan ini saat ini tidak memiliki halaman karier publik.",
+    "offlineTitle": "{name} tidak menerima lamaran saat ini",
+    "offlineBody": "Silakan coba lagi nanti.",
+    "posted": "Diposting {date}",
+    "poweredBy": "Didukung oleh",
+    "type": {
+      "full_time": "Penuh waktu",
+      "part_time": "Paruh waktu",
+      "contract": "Kontrak",
+      "internship": "Magang"
+    },
+    "experience": {
+      "junior": "Pemula",
+      "mid": "Menengah",
+      "senior": "Senior",
+      "lead": "Pemimpin"
+    },
+    "remote": {
+      "remote": "Remote",
+      "hybrid": "Hybrid",
+      "onsite": "On-site"
+    }
+  },
+  "jobs": {
+    "list": {
+      "metaTitle": "Lowongan Terbuka — Papan Pekerjaan",
+      "metaDescription": "Jelajahi lowongan kerja terbuka di Karir Untidar dan ajukan lamaran secara langsung. Temukan peluang karier berikutnya dengan perusahaan yang menghargai transparansi.",
+      "ogTitle": "Lowongan Terbuka — Papan Pekerjaan Karir Untidar",
+      "ogDescription": "Jelajahi lowongan kerja terbuka dan ajukan lamaran secara langsung. Didukung oleh ATS sumber terbuka yang benar-benar Anda miliki.",
+      "twitterDescription": "Jelajahi lowongan kerja terbuka dan ajukan lamaran secara langsung.",
+      "title": "Lowongan Terbuka",
+      "subtitle": "Jelajahi lowongan saat ini dan temukan peluang berikutnya.",
+      "searchPlaceholder": "Cari pekerjaan berdasarkan judul atau lokasi…",
+      "allTypes": "Semua tipe",
+      "viewMode": "Mode tampilan lowongan",
+      "listView": "Tampilan daftar",
+      "gridView": "Tampilan grid",
+      "loading": "Memuat lowongan…",
+      "errorLoad": "Gagal memuat pekerjaan. Silakan coba lagi.",
+      "retry": "Coba lagi",
+      "emptyTitle": "Tidak ada lowongan terbuka",
+      "emptyFiltered": "Tidak ada pekerjaan yang cocok dengan filter saat ini. Coba sesuaikan pencarian Anda.",
+      "emptyDefault": "Saat ini tidak ada lowongan terbuka. Cek kembali nanti!",
+      "previous": "Sebelumnya",
+      "next": "Berikutnya",
+      "pageOf": "Halaman {page} dari {total}",
+      "totalCount": "{count} lowongan terbuka | {count} lowongan terbuka"
+    },
+    "detail": {
+      "metaTitleFallback": "Detail Pekerjaan — Karir Untidar",
+      "metaDescriptionFallback": "Lihat detail pekerjaan dan ajukan lamaran",
+      "hiringNow": "Sedang Merekrut",
+      "metaApplyFor": "Lamaran untuk",
+      "metaAt": "di",
+      "metaIn": "di",
+      "notFoundTitle": "Pekerjaan Tidak Ditemukan",
+      "notFoundBody": "Posisi ini mungkin sudah tidak tersedia lagi atau saat ini tidak menerima lamaran.",
+      "browseAll": "Jelajahi semua posisi",
+      "allPositions": "Semua posisi",
+      "negotiable": "Dapat dinegosiasikan",
+      "postedOn": "Diposting {date}",
+      "applyNow": "Lamar Sekarang",
+      "applyTime": "Membutuhkan beberapa menit · Tidak perlu akun",
+      "seeAllRoles": "Lihat semua posisi terbuka di {name}",
+      "careerPageTitle": "Karier di {name}",
+      "careerPageDescription": "Kunjungi halaman karier perusahaan dan lihat semua posisi terbuka",
+      "companyLogoAlt": "Logo {name}",
+      "aboutRole": "Tentang posisi ini",
+      "questionsTitle": "Pertanyaan lamaran",
+      "questionsIntro": "Anda akan diminta menjawab {count} pertanyaan tambahan saat melamar. | Anda akan diminta menjawab {count} pertanyaan tambahan saat melamar.",
+      "required": "Wajib",
+      "readyTitle": "Siap melamar?",
+      "readyBody": "Ajukan lamaran Anda hanya dalam beberapa menit.",
+      "applyForPosition": "Lamar posisi ini"
+    },
+    "apply": {
+      "metaApplyPrefix": "Lamaran",
+      "metaTitleFallback": "Lamaran — Karir Untidar",
+      "metaDescriptionFallback": "Kirim lamaran Anda",
+      "notFoundTitle": "Posisi Tidak Ditemukan",
+      "notFoundBody": "Posisi ini mungkin sudah terisi atau tidak lagi menerima lamaran.",
+      "backHome": "Kembali ke Beranda",
+      "backToDetails": "Kembali ke detail pekerjaan",
+      "genericError": "Terjadi kesalahan. Silakan coba lagi.",
+      "validation": {
+        "firstNameRequired": "Nama depan wajib diisi",
+        "lastNameRequired": "Nama belakang wajib diisi",
+        "emailRequired": "Email wajib diisi",
+        "emailInvalid": "Alamat email tidak valid",
+        "phoneRequired": "Nomor telepon wajib diisi",
+        "resumeRequired": "Resume/CV wajib diisi",
+        "coverLetterRequired": "Surat pengantar wajib diisi",
+        "coverLetterTooLong": "Surat pengantar maksimal 10.000 karakter.",
+        "fileTooLarge": "File terlalu besar. Maksimal 10 MB.",
+        "fieldRequired": "Kolom ini wajib diisi"
+      }
+    },
+    "confirmation": {
+      "metaTitle": "Lamaran Dikirim — Karir Untidar",
+      "title": "Lamaran diterima",
+      "thanksWithTitle": "Terima kasih telah melamar untuk {title}. Detail Anda kini berada di tangan tim perekrutan.",
+      "thanksPlain": "Terima kasih telah melamar. Detail Anda kini berada di tangan tim perekrutan.",
+      "received": "Terkirim berhasil",
+      "backToCareerPage": "Kembali ke karier {name}",
+      "browseMore": "Jelajahi lebih banyak posisi",
+      "backHome": "Kembali ke Beranda"
+    },
+    "form": {
+      "cardTitle": "Lamaran Anda",
+      "requiredHint": "Kolom yang ditandai dengan {mark} wajib diisi.",
+      "firstName": "Nama Depan",
+      "firstNamePlaceholder": "Jane",
+      "lastName": "Nama Belakang",
+      "lastNamePlaceholder": "Doe",
+      "email": "Email",
+      "emailPlaceholder": "anda{'@'}contoh.com",
+      "phone": "Telepon",
+      "optional": "(opsional)",
+      "phonePlaceholder": "+62 812 3456-7890",
+      "resume": "Resume / CV",
+      "resumeHelp": "PDF, DOC, atau DOCX — maksimal 10 MB",
+      "change": "Ubah",
+      "chooseFile": "Pilih file",
+      "coverLetter": "Surat Pengantar",
+      "coverLetterPlaceholder": "Ceritakan alasan Anda tertarik pada posisi ini…",
+      "coverLetterMax": "Maksimal 10.000 karakter.",
+      "additionalQuestions": "Pertanyaan tambahan",
+      "submit": "Kirim Lamaran",
+      "submitting": "Mengirim…",
+      "confidential": "Informasi Anda dijaga kerahasiaannya."
+    },
+    "question": {
+      "selectOption": "Pilih opsi…",
+      "yes": "Ya",
+      "chooseFileHint": "Pilih file (PDF, DOC, DOCX — maksimal 10 MB)",
+      "urlPlaceholder": "https://…"
+    }
+  }
+}

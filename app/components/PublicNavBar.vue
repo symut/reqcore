@@ -12,9 +12,9 @@ const { data: session } = await authClient.useSession(useFetch)
 const { isDark, toggle: toggleColorMode } = useColorMode()
 const route = useRoute()
 const mobileMenuOpen = ref(false)
+const showAuthActions = computed(() => route.path === localePath('/'))
 
 const navLinks = computed(() => [
-  { to: localePath('/pricing'), label: t('home.nav.pricing'), page: 'pricing' },
   { to: localePath('/jobs'), label: t('home.nav.openPositions'), page: 'jobs' },
 ])
 
@@ -36,13 +36,13 @@ watch(() => route.fullPath, () => {
         <img
           src="/eagle-mascot-logo-128.png"
           alt="Reqcore mascot"
-          width="28"
-          height="28"
+          width="50"
+          height="50"
           loading="eager"
           decoding="sync"
-          class="h-7 w-7 object-contain"
+          class="h-12 w-12 object-contain"
         />
-        Reqcore
+        Karir Untidar
       </NuxtLink>
 
       <!-- Center nav links (desktop) -->
@@ -74,7 +74,7 @@ watch(() => route.fullPath, () => {
           </template>
         </ClientOnly>
         <LanguageSwitcher />
-        <template v-if="session?.user">
+        <template v-if="showAuthActions && session?.user">
           <NuxtLink
             :to="localePath('/dashboard')"
             class="rounded-md bg-surface-900 dark:bg-white px-3.5 py-1.5 text-[13px] font-semibold text-white dark:text-[#09090b] transition hover:bg-surface-800 dark:hover:bg-white/90"
@@ -82,7 +82,7 @@ watch(() => route.fullPath, () => {
             {{ t('home.nav.dashboard') }}
           </NuxtLink>
         </template>
-        <template v-else>
+        <template v-else-if="showAuthActions">
           <NuxtLink
             :to="localePath('/auth/sign-in')"
             class="hidden rounded-md px-3 py-1.5 text-[13px] font-medium text-surface-500 dark:text-surface-400 transition hover:text-surface-900 dark:hover:text-white sm:inline-flex"

@@ -40,6 +40,7 @@ function createOAuth2Client(redirectUri: string) {
 function getRedirectUri(): string {
   const baseUrl = env.BETTER_AUTH_URL
     || (env.RAILWAY_PUBLIC_DOMAIN ? `https://${env.RAILWAY_PUBLIC_DOMAIN}` : '')
+    || process.env.NUXT_PUBLIC_SITE_URL
     || 'https://reqcore.com'
   return `${baseUrl}/api/calendar/google/callback`
 }
@@ -278,10 +279,10 @@ export async function createCalendarEvent(
   const attendees: calendar_v3.Schema$EventAttendee[] = [
     ...(candidateEmailTrimmed && isValidEmail(candidateEmailTrimmed)
       ? [{
-          email: candidateEmailTrimmed,
-          displayName: data.candidateName,
-          responseStatus: 'needsAction' as const,
-        }]
+        email: candidateEmailTrimmed,
+        displayName: data.candidateName,
+        responseStatus: 'needsAction' as const,
+      }]
       : []),
     ...validInterviewerEmails.map(email => ({
       email,

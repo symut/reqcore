@@ -17,15 +17,59 @@
       "logIn": "Log in",
       "signUp": "Sign up"
     },
+    "stats": {
+      "companies": "Companies",
+      "jobs": "Open Jobs",
+      "applicants": "Applicants",
+      "hired": "Hired"
+    },
+    "map": {
+      "title": "Job Distribution by City",
+      "subtitle": "See the distribution of jobs across various cities"
+    },
+    "partners": {
+      "eyebrow": "Our partners",
+      "title": "Growing opportunities together",
+      "description": "We work with trusted employment and workforce partners to connect more people with meaningful opportunities."
+    },
+    "featuredJobs": {
+      "title": "Newest Jobs",
+      "subtitle": "Explore the newest opportunities",
+      "viewAll": "View all jobs"
+    },
+    "jobTypes": {
+      "eyebrow": "Find your fit",
+      "title": "Work that fits your next chapter",
+      "description": "Explore opportunities across different work arrangements, from full-time roles to internships that help you take your first step.",
+      "note": "New opportunities are added regularly",
+      "items": {
+        "fullTime": {
+          "label": "Full-time",
+          "description": "Long-term roles"
+        },
+        "partTime": {
+          "label": "Part-time",
+          "description": "Flexible schedules"
+        },
+        "contract": {
+          "label": "Contract",
+          "description": "Project-based work"
+        },
+        "internship": {
+          "label": "Internship",
+          "description": "Start and learn"
+        }
+      }
+    },
     "badge": "Hosted ATS for modern hiring teams",
     "hero": {
-      "titleLine1": "Hiring software",
-      "titleHighlight": "that starts free.",
-      "subtitle": "Track your first role in Reqcore with 1 active job and 300 applicants free. Upgrade only when your hiring pipeline grows.",
+      "titleLine1": "Job Fair 4.0",
+      "titleHighlight": "& Disnaker Goes to Campus",
+      "subtitle": "Make your dream career a reality here! Discover various job opportunities from leading companies and start your path to success today.",
       "goToDashboard": "Go to Dashboard",
       "signIn": "Sign in",
-      "createAccount": "Create account",
-      "ctaDemo": "Try live demo",
+      "createAccount": "Create account for Company",
+      "ctaDemo": "Apply now",
       "ctaStart": "Start free",
       "hint": "Try the demo with sample data, no sign-up needed"
     },
@@ -44,8 +88,39 @@
       }
     },
     "footer": {
-      "source": "Pricing",
-      "tagline": "Reqcore — applicant tracking that starts free"
+      "source": "About",
+      "tagline": "Untidar Career — Career Center of Universitas Tidar"
+    }
+  },
+  "auth": {
+    "sidebar": {
+      "signInTitle": "Welcome back",
+      "signInSubTitle": "Sign in to your Karir workspace.",
+      "signInForgotPassword": "Forgot your password?",
+      "signInOr": "or",
+      "signInNoAccount": "Don't have an account?",
+      "signInSignUp": "Sign up",
+      "signUpTitle": "Create your account",
+      "signUpSubTitle": "Start sorting your applicant flood in minutes.",
+      "signUpFormName": "FullName",
+      "signUpFormConfirmPassword": "Confirm Password",
+      "signUpAlreadyHaveAccount": "Already have an account?",
+      "signUpSignIn": "Sign in",
+      "plan": "Your plan",
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "twoMonthsFree": "2 months free",
+      "popular": "Popular",
+      "secureCheckout": "Secure checkout after sign-up",
+      "forCompaniesTitle": "For companies",
+      "companyBenefit1": "Manage job vacancies and recruitment processes.",
+      "companyBenefit2": "Monitor applicants, screening, and shortlisting in a structured way.",
+      "companyBenefit3": "Provide a platform for companies offering job vacancies.",
+      "applicantsTitle": "Applicants",
+      "applicantsText": "Applicants do not need to create an account or log in to view job vacancies and submit applications. Registration and login on this page are intended only for companies providing job openings.",
+      "helpSignIn": "Need help signing in?",
+      "helpSignUp": "Need help getting started?",
+      "contactSupport": "Contact support"
     }
   },
   "retention": {
@@ -154,14 +229,17 @@
   "jobs": {
     "list": {
       "metaTitle": "Open Positions — Job Board",
-      "metaDescription": "Browse open job positions on Reqcore and apply directly. Find your next career opportunity with companies that value transparency.",
-      "ogTitle": "Open Positions — Reqcore Job Board",
+      "metaDescription": "Browse open job positions on Untidar Career and apply directly. Find your next career opportunity with companies that value transparency.",
+      "ogTitle": "Open Positions — Untidar Career Job Board",
       "ogDescription": "Browse open job positions and apply directly. Powered by the open-source ATS you actually own.",
       "twitterDescription": "Browse open job positions and apply directly.",
       "title": "Open Positions",
       "subtitle": "Browse our current openings and find your next opportunity.",
       "searchPlaceholder": "Search jobs by title or location…",
       "allTypes": "All types",
+      "viewMode": "Job display mode",
+      "listView": "List view",
+      "gridView": "Grid view",
       "loading": "Loading positions…",
       "errorLoad": "Failed to load jobs. Please try again.",
       "retry": "Retry",
@@ -174,7 +252,7 @@
       "totalCount": "{count} open position | {count} open positions"
     },
     "detail": {
-      "metaTitleFallback": "Job Details — Reqcore",
+      "metaTitleFallback": "Job Details — Untidar Career",
       "metaDescriptionFallback": "View job details and apply",
       "hiringNow": "Hiring Now",
       "metaApplyFor": "Apply for",
@@ -202,7 +280,7 @@
     },
     "apply": {
       "metaApplyPrefix": "Apply",
-      "metaTitleFallback": "Apply — Reqcore",
+      "metaTitleFallback": "Apply — Untidar Career",
       "metaDescriptionFallback": "Submit your application",
       "notFoundTitle": "Position Not Found",
       "notFoundBody": "This position may have been filled or is no longer accepting applications.",
@@ -223,7 +301,7 @@
       }
     },
     "confirmation": {
-      "metaTitle": "Application Submitted — Reqcore",
+      "metaTitle": "Application Submitted — Untidar Career",
       "title": "Application received",
       "thanksWithTitle": "Thanks for applying for {title}. Your details are now with the hiring team.",
       "thanksPlain": "Thanks for applying. Your details are now with the hiring team.",

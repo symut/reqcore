@@ -9,6 +9,7 @@
 export function appBaseUrl(): string {
   return env.BETTER_AUTH_URL
     || (env.RAILWAY_PUBLIC_DOMAIN ? `https://${env.RAILWAY_PUBLIC_DOMAIN}` : '')
+    || process.env.NUXT_PUBLIC_SITE_URL
     || 'https://reqcore.com'
 }
 

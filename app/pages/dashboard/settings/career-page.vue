@@ -127,7 +127,7 @@ const copiedUrl = ref(false)
 async function copyUrl() {
   if (!publicUrl.value) return
   try {
-    await navigator.clipboard.writeText(publicUrl.value)
+    await copyToClipboard(publicUrl.value)
     copiedUrl.value = true
     setTimeout(() => { copiedUrl.value = false }, 2000)
   } catch {

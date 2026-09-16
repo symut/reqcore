@@ -8,7 +8,7 @@
  * redirect — everything else stays on app.reqcore.com.
  */
 const APP_HOSTS = new Set(["app.reqcore.com"]);
-const CANONICAL_ORIGIN = "https://reqcore.com";
+const CANONICAL_ORIGIN = process.env.BETTER_AUTH_URL || process.env.NUXT_PUBLIC_SITE_URL || "https://reqcore.com";
 const NON_DEFAULT_LOCALES = ["es", "fr", "de", "nb", "vi"];
 
 const HOME_PATHS = new Set([

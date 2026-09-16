@@ -150,7 +150,7 @@ function getCallbackUrl(providerId: string) {
 
 async function copyCallbackUrl(providerId: string) {
   try {
-    await navigator.clipboard.writeText(getCallbackUrl(providerId))
+    await copyToClipboard(getCallbackUrl(providerId))
     copiedProviderId.value = providerId
     setTimeout(() => { copiedProviderId.value = null }, 2000)
   } catch {

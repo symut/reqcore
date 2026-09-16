@@ -190,7 +190,10 @@ export function createLanguageModel(config: ProviderConfig) {
         baseURL: config.baseUrl || OPENROUTER_BASE_URL,
         headers: {
           // Recommended by OpenRouter for attribution in their dashboard.
-          'HTTP-Referer': 'https://reqcore.com',
+          'HTTP-Referer': env.BETTER_AUTH_URL
+            || (env.RAILWAY_PUBLIC_DOMAIN ? `https://${env.RAILWAY_PUBLIC_DOMAIN}` : '')
+            || process.env.NUXT_PUBLIC_SITE_URL
+            || 'https://reqcore.com',
           'X-Title': 'Reqcore',
         },
         fetch: pinOpenRouterRouting,

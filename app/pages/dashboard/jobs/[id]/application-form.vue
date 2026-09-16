@@ -32,7 +32,7 @@ const linkCopied = ref(false)
 
 async function copyApplicationLink() {
   try {
-    await navigator.clipboard.writeText(applicationUrl.value)
+    await copyToClipboard(applicationUrl.value)
     linkCopied.value = true
     setTimeout(() => { linkCopied.value = false }, 2000)
   } catch {

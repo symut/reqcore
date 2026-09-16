@@ -137,14 +137,14 @@ jobs:
           done
           echo "✅ minio is healthy"
 
-      - name: Wait for app to be reachable on :3000
+      - name: Wait for app to be reachable on :3006
         id: app_health
         run: |
           set -euo pipefail
           echo "Waiting for app..."
           for i in $(seq 60); do
-            if curl -fs http://localhost:3000 > /dev/null 2>&1; then
-              echo "✅ App is reachable on http://localhost:3000"
+            if curl -fs http://localhost:3006 > /dev/null 2>&1; then
+              echo "✅ App is reachable on http://localhost:3006"
               exit 0
             fi
             state="$(docker inspect --format='{{.State.Status}}' reqcore_app 2>/dev/null || echo 'missing')"
@@ -209,12 +209,12 @@ jobs:
             fi
           }
 
-          check "Home page"               "http://localhost:3000"                "200"
-          check "Sign-in page"            "http://localhost:3000/auth/sign-in"   "200"
-          check "Sign-up page"            "http://localhost:3000/auth/sign-up"   "200"
-          check "Public job board"        "http://localhost:3000/jobs"           "200"
-          check "API/jobs (no auth→401)"  "http://localhost:3000/api/jobs"       "401"
-          check "API/candidates (no auth)" "http://localhost:3000/api/candidates" "401"
+          check "Home page"               "http://localhost:3006"                "200"
+          check "Sign-in page"            "http://localhost:3006/auth/sign-in"   "200"
+          check "Sign-up page"            "http://localhost:3006/auth/sign-up"   "200"
+          check "Public job board"        "http://localhost:3006/jobs"           "200"
+          check "API/jobs (no auth→401)"  "http://localhost:3006/api/jobs"       "401"
+          check "API/candidates (no auth)" "http://localhost:3006/api/candidates" "401"
 
           exit $fail
 
@@ -235,7 +235,7 @@ jobs:
         id: seed_signin
         run: |
           set -euo pipefail
-          response="$(curl -s -X POST http://localhost:3000/api/auth/sign-in/email \
+          response="$(curl -s -X POST http://localhost:3006/api/auth/sign-in/email \
             -H "Content-Type: application/json" \
             -d '{"email":"demo@reqcore.com","password":"demo1234"}' \
             -w "\n%{http_code}")"
@@ -292,7 +292,7 @@ jobs:
           set -euo pipefail
           docker compose restart app
           for i in $(seq 30); do
-            if curl -fs http://localhost:3000 > /dev/null 2>&1; then
+            if curl -fs http://localhost:3006 > /dev/null 2>&1; then
               echo "✅ App reachable again after restart"
               break
             fi
@@ -337,7 +337,7 @@ jobs:
           row  6 "Docker build & start"               "${{ steps.docker_build.outcome }}"
           row  7 "Database healthy"                   "${{ steps.db_health.outcome }}"
           row  8 "MinIO healthy"                      "${{ steps.minio_health.outcome }}"
-          row  9 "App reachable on :3000"             "${{ steps.app_health.outcome }}"
+          row  9 "App reachable on :3006"             "${{ steps.app_health.outcome }}"
           row 10 "DB migrations applied"              "${{ steps.db_migrations.outcome }}"
           row 11 "S3 bucket ready"                    "${{ steps.s3_bucket.outcome }}"
           row 12 "HTTP smoke tests"                   "${{ steps.http_smoke.outcome }}"
@@ -384,7 +384,7 @@ jobs:
           junit_case "Docker build and start"             "${{ steps.docker_build.outcome }}"
           junit_case "Database healthy"                   "${{ steps.db_health.outcome }}"
           junit_case "MinIO healthy"                      "${{ steps.minio_health.outcome }}"
-          junit_case "App reachable on :3000"             "${{ steps.app_health.outcome }}"
+          junit_case "App reachable on :3006"             "${{ steps.app_health.outcome }}"
 
           echo "    </testsuite>" >> docker-integration-results.xml
           echo '    <testsuite name="Startup Assertions" tests="2">' >> docker-integration-results.xml

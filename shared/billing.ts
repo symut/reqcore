@@ -55,7 +55,7 @@ export interface BillingPlan {
  * Enforced in server/utils/billing/plan.ts (assertActiveRoleLimit).
  */
 export const ACTIVE_ROLE_LIMITS: Record<BillingTier, number> = {
-  free: 1,
+  free: Number.POSITIVE_INFINITY,
   grandfathered: 8,
   solo: 2,
   team: 8,

@@ -10,7 +10,7 @@ RUN npm ci
 COPY . .
 
 # Public site URL is baked in at build time; override with --build-arg for production
-ARG NUXT_PUBLIC_SITE_URL=http://localhost:3000
+ARG NUXT_PUBLIC_SITE_URL=http://localhost:3006
 ENV NUXT_PUBLIC_SITE_URL=${NUXT_PUBLIC_SITE_URL}
 
 # PostHog — the @posthog/nuxt module is conditionally loaded at build time.

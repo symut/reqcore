@@ -12,6 +12,7 @@ import {
     type BillingTier,
 } from "~~/shared/billing";
 import type { BillingCadence } from "~/composables/useBillingCheckout";
+const { t } = useI18n();
 const { isDark, toggle: toggleColorMode } = useColorMode();
 
 const route = useRoute();
@@ -165,151 +166,27 @@ function setCadence(cadence: BillingCadence) {
                 />
                 <span
                     class="text-lg font-semibold tracking-tight text-surface-900 dark:text-white"
-                    >Reqcore</span
+                    >Karir Untidar</span
                 >
             </div>
 
-            <!-- Plan picker — a premium popover to choose or switch plan and cadence.
-           Shown on sign-up, or anywhere a plan intent is already present. -->
-            <div
-                v-if="showPlanPicker && !isSignIn"
-                ref="planMenuRef"
-                class="relative mt-12"
-            >
-                <p
-                    class="text-[12px] uppercase tracking-wide text-surface-400 dark:text-white/35"
-                >
-                    Your plan
+            <div class="mt-4 rounded-2xl border border-emerald-200 bg-emerald-50/80 p-4 dark:border-emerald-500/20 dark:bg-emerald-500/5">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700 dark:text-emerald-300">
+                    {{ t("auth.sidebar.forCompaniesTitle") }}
                 </p>
+                <ul class="mt-3 space-y-2 text-sm leading-6 text-surface-600 dark:text-surface-300">
+                    <li>• {{ t("auth.sidebar.companyBenefit1") }}</li>
+                    <li>• {{ t("auth.sidebar.companyBenefit2") }}</li>
+                    <li>• {{ t("auth.sidebar.companyBenefit3") }}</li>
+                </ul>
+            </div>
 
-                <!-- Trigger -->
-                <button
-                    type="button"
-                    class="mt-2 flex w-full items-center justify-between gap-3 rounded-xl border border-surface-200 bg-white px-3.5 py-3 text-left transition hover:border-surface-300 dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/20"
-                    :aria-expanded="planMenuOpen"
-                    @click="planMenuOpen = !planMenuOpen"
-                >
-                    <span class="min-w-0">
-                        <span
-                            class="block text-[14px] font-semibold text-surface-900 dark:text-white"
-                            >{{ triggerName }}</span
-                        >
-                        <span
-                            class="mt-0.5 block truncate text-[12px] text-surface-400 dark:text-white/40"
-                            >{{ triggerSub }}</span
-                        >
-                    </span>
-                    <span class="flex shrink-0 items-center gap-2">
-                        <span
-                            v-if="triggerPrice"
-                            class="text-[13px] font-semibold text-surface-700 dark:text-white/80"
-                            >{{ triggerPrice }}</span
-                        >
-                        <ChevronDown
-                            class="size-4 text-surface-400 transition-transform duration-200"
-                            :class="planMenuOpen && 'rotate-180'"
-                        />
-                    </span>
-                </button>
-
-                <!-- Popover -->
-                <Transition
-                    enter-active-class="transition duration-150 ease-out"
-                    enter-from-class="opacity-0 -translate-y-1"
-                    leave-active-class="transition duration-100 ease-in"
-                    leave-to-class="opacity-0 -translate-y-1"
-                >
-                    <div
-                        v-if="planMenuOpen"
-                        class="absolute inset-x-0 z-30 mt-2 overflow-hidden rounded-xl border border-surface-200 bg-white shadow-xl ring-1 ring-black/[0.02] dark:border-white/[0.08] dark:bg-[#101014] dark:shadow-black/40"
-                    >
-                        <!-- Cadence toggle -->
-                        <div
-                            class="grid grid-cols-2 gap-1 border-b border-surface-100 p-1.5 dark:border-white/[0.06]"
-                        >
-                            <button
-                                type="button"
-                                class="rounded-md px-3 py-1.5 text-[12px] font-medium transition"
-                                :class="
-                                    selectedCadence === 'monthly'
-                                        ? 'bg-surface-100 text-surface-900 dark:bg-white/[0.1] dark:text-white'
-                                        : 'text-surface-500 hover:text-surface-800 dark:text-white/45 dark:hover:text-white'
-                                "
-                                @click="setCadence('monthly')"
-                            >
-                                Monthly
-                            </button>
-                            <button
-                                type="button"
-                                class="flex items-center justify-center gap-1.5 rounded-md px-3 py-1.5 text-[12px] font-medium transition"
-                                :class="
-                                    selectedCadence === 'annual'
-                                        ? 'bg-surface-100 text-surface-900 dark:bg-white/[0.1] dark:text-white'
-                                        : 'text-surface-500 hover:text-surface-800 dark:text-white/45 dark:hover:text-white'
-                                "
-                                @click="setCadence('annual')"
-                            >
-                                Yearly
-                                <span
-                                    class="rounded-full bg-emerald-500/15 px-1.5 py-px text-[10px] font-semibold text-emerald-600 dark:text-emerald-400"
-                                    >2 months free</span
-                                >
-                            </button>
-                        </div>
-
-                        <!-- Plan options -->
-                        <ul class="p-1.5">
-                            <li v-for="opt in planOptions" :key="opt.id">
-                                <button
-                                    type="button"
-                                    class="flex w-full items-center gap-3 rounded-lg px-2.5 py-2 text-left transition hover:bg-surface-50 dark:hover:bg-white/[0.04]"
-                                    :class="
-                                        opt.id === currentPlanId &&
-                                        'bg-surface-50 dark:bg-white/[0.04]'
-                                    "
-                                    @click="selectPlan(opt.id)"
-                                >
-                                    <span
-                                        class="flex size-4 shrink-0 items-center justify-center"
-                                    >
-                                        <Check
-                                            v-if="opt.id === currentPlanId"
-                                            class="size-4 text-brand-500"
-                                            :stroke-width="2.5"
-                                        />
-                                    </span>
-                                    <span class="min-w-0 flex-1">
-                                        <span class="flex items-center gap-2">
-                                            <span
-                                                class="text-[13.5px] font-semibold text-surface-900 dark:text-white"
-                                                >{{ opt.name }}</span
-                                            >
-                                            <span
-                                                v-if="opt.featured"
-                                                class="rounded-full bg-brand-500/15 px-1.5 py-0.5 text-[10px] font-medium text-brand-600 dark:text-brand-300"
-                                                >Popular</span
-                                            >
-                                        </span>
-                                        <span
-                                            class="block truncate text-[12px] text-surface-400 dark:text-white/40"
-                                            >{{ opt.tagline }}</span
-                                        >
-                                    </span>
-                                    <span
-                                        class="shrink-0 text-[13px] font-semibold text-surface-700 dark:text-white/80"
-                                        >{{ opt.price }}</span
-                                    >
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </Transition>
-
-                <p
-                    v-if="currentPaidPlan"
-                    class="mt-2 text-[12px] text-surface-400 dark:text-white/35"
-                >
-                    Secure checkout after sign-up
+            <div class="mt-4 rounded-2xl border border-danger-200 bg-danger-50/80 p-4 dark:border-danger-500/20 dark:bg-danger-500/5">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-danger-700 dark:text-danger-300">
+                    {{ t("auth.sidebar.applicantsTitle") }}
+                </p>
+                <p class="mt-2 text-sm leading-6 text-surface-700 dark:text-surface-200">
+                    {{ t("auth.sidebar.applicantsText") }}
                 </p>
             </div>
 
@@ -319,13 +196,13 @@ function setCadence(cadence: BillingCadence) {
             >
                 {{
                     isSignIn
-                        ? "Need help signing in?"
-                        : "Need help getting started?"
+                        ? t("auth.sidebar.helpSignIn")
+                        : t("auth.sidebar.helpSignUp")
                 }}
                 <a
-                    href="mailto:support@reqcore.com?subject=Reqcore%20account%20help"
+                    href="mailto:karir@untidar.ac.id?subject=Karir%20account%20help"
                     class="font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
-                    >Contact support</a
+                    >{{ t("auth.sidebar.contactSupport") }}</a
                 >.
             </p>
         </aside>
@@ -341,12 +218,12 @@ function setCadence(cadence: BillingCadence) {
                 >
                     <img
                         src="/eagle-mascot-logo.png"
-                        alt="Reqcore mascot"
+                        alt="Karir mascot"
                         class="size-12 object-contain"
                     />
                     <span
                         class="text-lg font-semibold tracking-tight text-surface-900 dark:text-surface-100"
-                        >Reqcore</span
+                        >Karir</span
                     >
                 </div>
 

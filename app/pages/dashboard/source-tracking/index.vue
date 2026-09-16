@@ -172,7 +172,7 @@ function buildTrackingUrl(code: string): string {
 const copiedCode = ref<string | null>(null)
 async function copyTrackingUrl(code: string) {
   try {
-    await navigator.clipboard.writeText(buildTrackingUrl(code))
+    await copyToClipboard(buildTrackingUrl(code))
     copiedCode.value = code
     setTimeout(() => { copiedCode.value = null }, 2000)
   } catch {

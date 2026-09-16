@@ -809,7 +809,7 @@ const applicationLink = computed(() => {
 
 async function copyApplicationLink() {
   try {
-    await navigator.clipboard.writeText(applicationLink.value)
+    await copyToClipboard(applicationLink.value)
     linkCopied.value = true
     setTimeout(() => {
       linkCopied.value = false
@@ -923,7 +923,7 @@ async function handleSubmit(mode: 'publish' | 'draft' = publishChoice.value) {
 
       // Auto-copy to clipboard
       try {
-        await navigator.clipboard.writeText(finalApplicationLink.value)
+        await copyToClipboard(finalApplicationLink.value)
         linkCopiedFinal.value = true
         setTimeout(() => { linkCopiedFinal.value = false }, 3000)
       } catch {
