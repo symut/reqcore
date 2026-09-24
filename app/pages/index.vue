@@ -71,7 +71,7 @@
     { key: 'bmt-tumang', src: '/partner/partner-bmt-tumang.png', alt: 'BMT Tumang' },
     { key: 'bpr-drs', src: '/partner/partner-bpr-drs.png', alt: 'BPR DRS' },
     { key: 'edu-akksa', src: '/partner/partner-edu-akksa.png', alt: 'Edu Akksa' },
-    { key: 'fif', src: '/partner/partner-fif.jpeg', alt: 'FIF' },
+    { key: 'fif', src: '/partner/partner-fif.png', alt: 'FIF' },
     { key: 'gacoan', src: '/partner/partner-gacoan.png', alt: 'Gacoan' },
     { key: 'kap-jsr', src: '/partner/partner-kap-jsr.png', alt: 'KAP JSR' },
     { key: 'kospin-jasa', src: '/partner/partner-kospin-jasa.png', alt: 'Kospin Jasa' },
