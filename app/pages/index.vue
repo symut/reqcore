@@ -302,13 +302,13 @@
       <!-- ── Partners ── -->
       <section class="mx-auto mt-24 max-w-5xl px-6">
         <div class="text-center">
-          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-600 light:text-brand-300">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-600 dark:text-brand-300">
             {{ $t('home.partners.eyebrow') }}
           </p>
-          <h2 class="mt-2 text-3xl font-bold tracking-tight text-surface-900 light:text-dark sm:text-4xl">
+          <h2 class="mt-2 text-3xl font-bold tracking-tight text-surface-900 dark:text-white sm:text-4xl">
             {{ $t('home.partners.title') }}
           </h2>
-          <p class="mx-auto mt-4 max-w-2xl text-sm leading-6 text-surface-600 light:text-surface-400">
+          <p class="mx-auto mt-4 max-w-2xl text-sm leading-6 text-surface-600 dark:text-surface-400">
             {{ $t('home.partners.description') }}
           </p>
         </div>
