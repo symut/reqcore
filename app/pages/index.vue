@@ -12,11 +12,30 @@
   ])
 
   const jobTypes = computed(() => [
-    { icon: Briefcase, key: 'fullTime', tone: 'brand' },
+    { icon: Briefcase, key: 'fullTime', tone: 'emerald' },
     { icon: Clock3, key: 'partTime', tone: 'sky' },
     { icon: FileText, key: 'contract', tone: 'amber' },
     { icon: GraduationCap, key: 'internship', tone: 'rose' },
   ])
+
+  const toneClasses: Record<string, { box: string, icon: string }> = {
+    emerald: {
+      box: 'border-emerald-200 bg-emerald-50 hover:border-emerald-400 dark:border-emerald-500/20 dark:bg-emerald-500/10 dark:hover:border-emerald-500/40',
+      icon: 'text-emerald-600 dark:text-emerald-400'
+    },
+    sky: {
+      box: 'border-sky-200 bg-sky-50 hover:border-sky-400 dark:border-sky-500/20 dark:bg-sky-500/10 dark:hover:border-sky-500/40',
+      icon: 'text-sky-600 dark:text-sky-400'
+    },
+    amber: {
+      box: 'border-amber-200 bg-amber-50 hover:border-amber-400 dark:border-amber-500/20 dark:bg-amber-500/10 dark:hover:border-amber-500/40',
+      icon: 'text-amber-600 dark:text-amber-400'
+    },
+    rose: {
+      box: 'border-rose-200 bg-rose-50 hover:border-rose-400 dark:border-rose-500/20 dark:bg-rose-500/10 dark:hover:border-rose-500/40',
+      icon: 'text-rose-600 dark:text-rose-400'
+    }
+  }
 
   const { data: recentJobsData } = await useFetch('/api/public/jobs', {
     key: 'landing-public-jobs',
@@ -45,6 +64,33 @@
       year: 'numeric',
     })
   }
+
+  const partners = [
+    { key: 'aoi', src: '/partner/partner-aoi.png', alt: 'AOI' },
+    { key: 'bfi', src: '/partner/partner-bfi.png', alt: 'BFI' },
+    { key: 'bmt-tumang', src: '/partner/partner-bmt-tumang.png', alt: 'BMT Tumang' },
+    { key: 'bpr-drs', src: '/partner/partner-bpr-drs.png', alt: 'BPR DRS' },
+    { key: 'edu-akksa', src: '/partner/partner-edu-akksa.png', alt: 'Edu Akksa' },
+    { key: 'fif', src: '/partner/partner-fif.jpeg', alt: 'FIF' },
+    { key: 'gacoan', src: '/partner/partner-gacoan.png', alt: 'Gacoan' },
+    { key: 'kap-jsr', src: '/partner/partner-kap-jsr.png', alt: 'KAP JSR' },
+    { key: 'kospin-jasa', src: '/partner/partner-kospin-jasa.png', alt: 'Kospin Jasa' },
+    { key: 'lpk-akatara', src: '/partner/partner-lpk-akatara.png', alt: 'LPK Akatara' },
+    { key: 'mandiri-uf', src: '/partner/partner-mandiri-uf.png', alt: 'Mandiri UF' },
+    { key: 'mandiri', src: '/partner/partner-mandiri.png', alt: 'Mandiri' },
+    { key: 'mmi', src: '/partner/partner-mmi.png', alt: 'MMI' },
+    { key: 'ppks', src: '/partner/partner-ppks.png', alt: 'PPKS' },
+    { key: 'sim', src: '/partner/partner-sim.jpeg', alt: 'SIM' },
+    { key: 'tp', src: '/partner/partner-tp.png', alt: 'TP' },
+    { key: 'umbul-banyuroso', src: '/partner/partner-umbul-banyuroso.png', alt: 'Umbul Banyuroso' },
+  ]
+
+  const sponsors = [
+    { key: 'bni46', src: '/sponsor/sponsor-bni46.png', alt: 'BNI 46' },
+    { key: 'btn', src: '/sponsor/sponsor-btn.png', alt: 'BTN' },
+    { key: 'grab', src: '/sponsor/sponsor-grab.png', alt: 'Grab' },
+    { key: 'ganidar', src: '/sponsor/spronso-ganidar.png', alt: 'Ganidar' },
+  ]
 
   useHead({ title: 'Karir' })
   definePageMeta({ layout: false })
@@ -214,11 +260,14 @@
                 <div
                   v-for="jobType in jobTypes"
                   :key="jobType.key"
-                  class="group flex min-h-[112px] flex-col justify-between rounded-lg border border-surface-200 bg-surface-50 p-4 transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md dark:border-white/[0.08] dark:bg-white/[0.04] dark:hover:border-brand-700"
+                  :class="[
+                    'group flex min-h-[112px] flex-col justify-between rounded-lg border p-4 transition hover:-translate-y-0.5 hover:shadow-md',
+                    toneClasses[jobType.tone]?.box || 'border-surface-200 bg-surface-50 hover:border-brand-300 dark:border-white/[0.08] dark:bg-white/[0.04] dark:hover:border-brand-700'
+                  ]"
                 >
                   <component
                     :is="jobType.icon"
-                    class="h-5 w-5 text-brand-600 dark:text-brand-300"
+                    :class="['h-5 w-5', toneClasses[jobType.tone]?.icon || 'text-brand-600 dark:text-brand-300']"
                   />
                   <div>
                     <p class="text-sm font-semibold text-surface-900 dark:text-white">
@@ -253,30 +302,56 @@
       <!-- ── Partners ── -->
       <section class="mx-auto mt-24 max-w-5xl px-6">
         <div class="text-center">
-          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-600 dark:text-brand-300">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-600 light:text-brand-300">
             {{ $t('home.partners.eyebrow') }}
           </p>
-          <h2 class="mt-2 text-3xl font-bold tracking-tight text-surface-900 dark:text-white sm:text-4xl">
+          <h2 class="mt-2 text-3xl font-bold tracking-tight text-surface-900 light:text-dark sm:text-4xl">
             {{ $t('home.partners.title') }}
           </h2>
-          <p class="mx-auto mt-4 max-w-2xl text-sm leading-6 text-surface-600 dark:text-surface-400">
+          <p class="mx-auto mt-4 max-w-2xl text-sm leading-6 text-surface-600 light:text-surface-400">
             {{ $t('home.partners.description') }}
           </p>
         </div>
 
-        <div class="mt-8 grid items-center gap-4 sm:grid-cols-3">
+        <div class="mt-8 grid grid-cols-2 items-center gap-4 sm:grid-cols-4 md:grid-cols-6">
           <div
-            v-for="partner in [
-              { key: 'emakaryo', src: '/partner-emakaryo.png', alt: 'eMakaryo' },
-              { key: 'ayokerjo', src: '/partner-ayokerjo.png', alt: 'AYOkerjo' },
-              { key: 'disnakertrans', src: '/partner-disnakertrans.png', alt: 'Disnakertrans AYOkerjo Jateng' },
-            ]"
+            v-for="partner in partners"
             :key="partner.key"
-            class="flex h-36 items-center justify-center rounded-xl border border-surface-200 bg-white px-6 py-5 transition hover:border-brand-300 hover:shadow-sm dark:border-white/[0.08] dark:bg-surface-950 dark:hover:border-brand-700"
+            class="flex h-32 items-center justify-center rounded-xl border border-surface-200 bg-white px-4 py-4 transition hover:border-brand-300 hover:shadow-sm"
           >
             <img
               :src="partner.src"
               :alt="partner.alt"
+              loading="lazy"
+              class="max-h-20 w-full object-contain"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Sponsors ── -->
+      <section class="mx-auto mt-24 max-w-5xl px-6">
+        <div class="text-center">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-600 dark:text-brand-300">
+            {{ $t('home.sponsors.eyebrow') }}
+          </p>
+          <h2 class="mt-2 text-3xl font-bold tracking-tight text-surface-900 dark:text-white sm:text-4xl">
+            {{ $t('home.sponsors.title') }}
+          </h2>
+          <p class="mx-auto mt-4 max-w-2xl text-sm leading-6 text-surface-600 dark:text-surface-400">
+            {{ $t('home.sponsors.description') }}
+          </p>
+        </div>
+
+        <div class="mt-8 grid grid-cols-2 items-center gap-4 sm:grid-cols-4">
+          <div
+            v-for="sponsor in sponsors"
+            :key="sponsor.key"
+            class="flex h-36 items-center justify-center rounded-xl border border-surface-200 bg-white px-6 py-5 transition hover:border-brand-300 hover:shadow-sm"
+          >
+            <img
+              :src="sponsor.src"
+              :alt="sponsor.alt"
               loading="lazy"
               class="max-h-24 w-full object-contain"
             />
@@ -295,7 +370,7 @@
           </NuxtLink>
         </div>
         <p class="text-[12px] text-surface-500 dark:text-surface-600">
-          {{ $t('home.footer.tagline') }}
+          {{ $t('home.footer.tagline') }} | Powered by <a :href="useRuntimeConfig().public.marketingUrl" class="underline hover:text-surface-600 dark:hover:text-surface-300">Reqcore</a>
         </p>
       </footer>
     </main>
